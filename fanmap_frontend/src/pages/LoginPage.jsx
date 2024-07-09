@@ -1,8 +1,32 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import styles from "../css/StyledLoginPage.module.css";
 
 function LoginPage() {
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post("/accounts/login", {
+        id,
+        password
+      });
+      const { token, user_id, email } = response.data;
+      localStorage.setItem("token", token);
+      navigate("/main");
+    } catch (error) {
+      setError("로그인에 실패했습니다.");
+
+      setTimeout(() => {
+        setError("");
+      }, 2000);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <img src="img/login_bg.png" alt="bg" />
@@ -15,18 +39,29 @@ function LoginPage() {
             name="id"
             type="text"
             placeholder="아이디"
+            value={id}
+            onChange={(e) => setId(e.target.value)}
           />
           <input
             className={styles.loginBox}
             name="pw"
             type="password"
             placeholder="비밀번호"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <Link to="/membership" className={styles.memJoinBtn}>
-          회원가입
-        </Link>
-        <div className={styles.loginBtn}>로그인</div>
+        <div className={styles.btnWp}>
+          <div className={styles.memJoinBtn}>
+            <Link to="/membership" style={{ textDecorationLine: "none", color: "#fff" }}>
+              회원가입
+            </Link>
+          </div>
+          <div className={styles.loginBtn} onClick={handleLogin}>
+            로그인
+          </div>
+        </div>
+        {error && <div className={styles.error}>{error}</div>}
         <div className={styles.find}>
           <div className={styles.findId}>
             아이디 찾기<span className={styles.line}>|</span>

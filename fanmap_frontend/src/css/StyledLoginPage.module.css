@@ -1,37 +1,47 @@
+@import url('https://webfontworld.github.io/sunn/SUIT.css');
 .container {
   width: 390px;
   height: 844px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -770px; 
+}
+
 .logo {
-  position: relative;
-  bottom: 740px;
-  left: 120px;
+  margin-top: 40px;
 }
+
 .logoText {
-  position: relative;
-  bottom: 740px;
-  left: 110px;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: Sarabun;
+  font-family: "SUIT Variable";
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   color: #fff;
 }
-
+.loginWp{
+  margin-top: 70px;
+  margin-left: 5px;
+}
 .loginBox {
   color: #fff;
   border: none;
   padding-left: 20px;
-  position: relative;
-  bottom: 680px;
-  left: 75px;
-  width: 206px;
+  width: 216px;
   height: 39px;
   border-radius: 20px;
   background: rgba(29, 29, 29, 0.65);
-  margin-top: 10px; 
+  margin-top: 10px;
+  margin-left: 70px;
 }
 
 .loginBox::placeholder {
@@ -45,6 +55,13 @@
   outline: none;
   color: #fff;
 }
+.btnWp{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
 .memJoinBtn,
 .loginBtn {
   color: #fff;
@@ -55,73 +72,72 @@
     --button-2,
     linear-gradient(121deg, #47c3fd -5.17%, #402846 54.32%)
   );
-  float: left;
-  position: relative;
-  bottom: 660px;
-  left: 77px;
   text-align: center;
   padding-top: 10px;
   text-decoration: none;
-}
-.memJoinBtn:visited {
-  color: #fff;
-}
-.memJoinBtn:hover {
-  color: gray;
-}
-
-.memJoinBtn:active {
-  color: #fff;
+  margin-top: 10px;
 }
 
 .loginBtn {
-  left: 90px;
+  margin-top: 10px;
+}
+
+.error {
+position: fixed;
+bottom: 508px;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+}
+
+.find {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
 .findId,
 .findPw {
+  width: 100px;
   color: #fff;
   font-family: "SUIT Variable";
   font-size: 14px;
   font-weight: 400;
-  float: left;
-  position: relative;
-  bottom: 600px;
 }
-
-.findId {
-  right: 130px;
+.findPw{
+  margin-left: 10px;
 }
-.findPw {
-  bottom: 617px;
-  right: 10px;
+.findId{
+  margin-left: 15px;
+  width: 110px;
+  margin-right: 10px;
 }
-
 .line {
-  clear: both;
-  float: inline-end;
-  margin-left: 25px;
+  margin-left: 30px;
 }
-.loginPlatformWp{
-  color: #fff;
-  position: relative;
-  bottom: 550px;
-  left: 45px;
-  width: 296px;
-  height: 245px;
+
+.loginPlatformWp {
+  width:  296px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
   border-top: 1px solid #fff;
+  padding-top: 20px;
+  
+}
+.loginGoogle{
+  margin-top: 15px;
 }
 .loginGoogle,
 .loginKakao {
-  float: left;
+  color: #fff;
   text-align: center;
-  width: 226px;
-  height: 35px;
+  width: 236px;
+  height: 30px;
   flex-shrink: 0;
   border-radius: 20px;
   background: rgba(29, 29, 29, 0.65);
-  position: relative;
-  left: 30px;
   margin-bottom: 10px;
   padding-top: 10px;
   font-size: 14px;
