@@ -1,0 +1,129 @@
+.container {
+  width: 390px;
+  height: 844px;
+}
+.logo {
+  position: relative;
+  bottom: 740px;
+  left: 120px;
+}
+.logoText {
+  position: relative;
+  bottom: 740px;
+  left: 110px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Sarabun;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: #fff;
+}
+
+.loginBox {
+  color: #fff;
+  border: none;
+  padding-left: 20px;
+  position: relative;
+  bottom: 680px;
+  left: 75px;
+  width: 206px;
+  height: 39px;
+  border-radius: 20px;
+  background: rgba(29, 29, 29, 0.65);
+  margin-top: 10px; 
+}
+
+.loginBox::placeholder {
+  color: #fff;
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.loginBox:focus {
+  outline: none;
+  color: #fff;
+}
+.memJoinBtn,
+.loginBtn {
+  color: #fff;
+  width: 112px;
+  height: 32px;
+  border-radius: 20px;
+  background: var(
+    --button-2,
+    linear-gradient(121deg, #47c3fd -5.17%, #402846 54.32%)
+  );
+  float: left;
+  position: relative;
+  bottom: 660px;
+  left: 77px;
+  text-align: center;
+  padding-top: 10px;
+  text-decoration: none;
+}
+.memJoinBtn:visited {
+  color: #fff;
+}
+.memJoinBtn:hover {
+  color: gray;
+}
+
+.memJoinBtn:active {
+  color: #fff;
+}
+
+.loginBtn {
+  left: 90px;
+}
+
+.findId,
+.findPw {
+  color: #fff;
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-weight: 400;
+  float: left;
+  position: relative;
+  bottom: 600px;
+}
+
+.findId {
+  right: 130px;
+}
+.findPw {
+  bottom: 617px;
+  right: 10px;
+}
+
+.line {
+  clear: both;
+  float: inline-end;
+  margin-left: 25px;
+}
+.loginPlatformWp{
+  color: #fff;
+  position: relative;
+  bottom: 550px;
+  left: 45px;
+  width: 296px;
+  height: 245px;
+  border-top: 1px solid #fff;
+}
+.loginGoogle,
+.loginKakao {
+  float: left;
+  text-align: center;
+  width: 226px;
+  height: 35px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: rgba(29, 29, 29, 0.65);
+  position: relative;
+  left: 30px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  font-size: 14px;
+  font-weight: 400;
+}

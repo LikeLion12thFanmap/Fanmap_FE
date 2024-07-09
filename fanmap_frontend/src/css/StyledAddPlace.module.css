@@ -1,0 +1,194 @@
+.container {
+  width: 395px;
+  height: 844px;
+  background: var(--main2, #402846);
+}
+.titleBar {
+  width: 395px;
+  height: 51px;
+  background: linear-gradient(96deg, #402846 54.12%, #e42a89 96.19%);
+}
+.backBtn {
+  padding-right: 70px;
+  padding-left: 10px;
+  padding-top: 12px;
+}
+.placeicon {
+  margin-left: 30px;
+  margin-right: 10px;
+}
+.tempSaveBtn {
+  height: 15px;
+  position: relative;
+  font-size: 12px;
+  font-weight: 300;
+  left: 330px;
+  bottom: 20px;
+}
+.placeImg {
+  width: 295px;
+  height: 151px;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+.placeAddress {
+  margin-left: 50px;
+  margin-top: 20px;
+  font-size: 12px;
+  font-weight: 400;
+}
+.address {
+  position: relative;
+  bottom: 6px;
+  left: 10px;
+}
+
+.replaceBtn {
+  position: relative;
+  font-size: 10px;
+  font-weight: 700;
+  width: 90px;
+  height: 20px;
+  border-radius: 20px;
+  background: var(
+    --button,
+    linear-gradient(101deg, #e42a89 -2.02%, #402846 70.2%)
+  );
+  box-shadow: 0px 1.5px 2px 0px rgba(71, 195, 253, 0.45),
+    0px 1.5px 2px 0px rgba(71, 195, 253, 0.45) inset;
+  left: 90px;
+  bottom: 25px;
+  text-align: center;
+  padding-top: 6px;
+}
+.placeInfo {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.placeName,
+.placePurpose,
+.time,
+.category,
+.condition,
+.additionalInfo,
+.img {
+  padding-left: 50px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.addBtn {
+  width: 295px;
+  height: 40px;
+  border-radius: 40px;
+  background: var(
+    --button,
+    linear-gradient(101deg, #e42a89 -2.02%, #402846 70.2%)
+  );
+  box-shadow: 0px 4px 4px 0px rgba(71, 195, 253, 0.25),
+    0px 4px 4px 0px rgba(71, 195, 253, 0.25) inset;
+  position: relative;
+  top: 40px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.inputBox,
+input[type="time"],
+.category,
+.item {
+  margin-left: 25px;
+  width: 180px;
+  height: 22px;
+  border-radius: 5px;
+  background: #cdbacb;
+  border: none;
+}
+input[type="time"] {
+  width: 70px;
+  height: 22px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.category,
+.item {
+  width: 90px;
+}
+input:focus,
+.item,
+.category {
+  outline: none;
+}
+input::placeholder,
+.item,
+.category,
+.timeBox {
+  color: var(--main1, #1d1d1d);
+  font-size: 10px;
+  font-weight: 200;
+}
+
+.categoryWp {
+  margin-left: 51px;
+}
+
+input,
+.category {
+  padding-left: 10px;
+}
+.item {
+  padding-left: 3px;
+}
+.sp {
+  position: relative;
+  left: 105px;
+  color: #cdbacb;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.inputBox {
+  margin-left: 30px;
+}
+.placePurpose {
+  position: relative;
+  right: 10px;
+}
+.pb {
+  position: relative;
+  left: 10px;
+}
+
+.category {
+  margin-left: 35px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+.filebox label {
+  display: inline-block;
+  width: 78px;
+  height: 18px;
+  text-align: center;
+  background-color: #cdbacb;
+  cursor: pointer;
+  margin-left: 10px;
+  color: var(--main1, #1d1d1d);
+  font-size: 10px;
+  font-weight: 200;
+  padding-top: 5px;
+  border-radius: 5px;
+  position: relative;
+  left: 70px;
+  bottom: 17px;
+}
+.filebox input[type="file"] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+}
