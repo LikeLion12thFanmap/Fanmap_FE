@@ -143,6 +143,7 @@ const ListItem = ({
                     src={`${process.env.PUBLIC_URL}/images/Vector2.svg`}
                     alt="edit1img2"
                   />
+                  <p id="edit1p">순서 변경</p>
                 </button>
 
                 <button id="edit2" onClick={() => setCopyModal(true)}>
@@ -156,6 +157,7 @@ const ListItem = ({
                     src={`${process.env.PUBLIC_URL}/images/Vector.svg`}
                     alt="edit2img"
                   />
+                  <p id="edit2p">공유</p>
                 </button>
 
                 {/* proprs로 post도 전달 */}
@@ -172,6 +174,7 @@ const ListItem = ({
                     src={`${process.env.PUBLIC_URL}/images/delete.svg`}
                     alt="edit3img"
                   />
+                  <p id="edit3p">삭제</p>
                 </button>
 
                 {/* proprs로 post도 전달 */}
