@@ -4,6 +4,7 @@ import * as W from "../css/styledWrite";
 
 const Write = () => {
   const navigate = useNavigate();
+
   const goBack = () => {
     navigate("/community");
   };
@@ -26,7 +27,8 @@ const Write = () => {
       </W.Nav>
       <W.Content>
         <input id="inputTitle" placeholder="제목이 들어갑니다." />
-        <input type="text" className="mainText" />
+        <textarea id="inputContent" placeholder="내용이 들어갑니다." />
+        <p>아래 미디어 추가할 수 있습니다.</p>
         <img
           src={`${process.env.PUBLIC_URL}/images/Rectangle39.png`}
           alt="addimage"
@@ -37,7 +39,7 @@ const Write = () => {
             src={`${process.env.PUBLIC_URL}/images/clip.svg`}
             alt="clip"
           />
-          <p>http://www.fanmap.co.kr</p>
+          <input placeholder="링크를 추가하시오" />
         </W.Box>
         <W.Box2>
           <img
@@ -45,7 +47,7 @@ const Write = () => {
             src={`${process.env.PUBLIC_URL}/images/place.svg`}
             alt="place"
           />
-          <p>서울특별시 송파구 올림픽로 25</p>
+          <input placeholder="장소를 추가하시오" />
         </W.Box2>
       </W.Content>
     </W.Container>
