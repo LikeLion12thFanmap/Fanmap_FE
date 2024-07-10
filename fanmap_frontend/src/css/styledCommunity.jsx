@@ -3,7 +3,7 @@ export const Container = styled.div`
   position: relative;
   margin: 0 auto;
   width: 390px;
-  height: 100vh;
+  height: 849px;
   background: #402846;
 `;
 export const BackBtn = styled.div`
@@ -15,7 +15,7 @@ export const Nav = styled.div`
   display: flex;
   justify-content: space-between;
   width: 390px;
-  height: 7vh;
+  height: 51px;
   flex-shrink: 0;
   background: linear-gradient(96deg, #402846 54.12%, #e42a89 96.19%);
 `;
@@ -40,8 +40,8 @@ export const Write = styled.div`
 `;
 export const Content = styled.div`
   width: 350px;
-  height: 93vh;
-  padding: 23px;
+  height: 750px;
+  padding: 20px;
   overflow-y: auto;
   &::-webkit-scrollbar {
     display: none;
@@ -155,7 +155,7 @@ export const C8 = styled.div`
 `;
 export const C82 = styled.div`
   position: absolute;
-  bottom: 10px;
+  bottom: 9px;
   right: 5px;
   width: 80px;
   z-index: 1;
@@ -169,6 +169,7 @@ export const C82 = styled.div`
     font-weight: 600;
     line-height: normal;
     margin-left: 20px;
+    padding-bottom: 5px;
   }
 
   #Star3 {

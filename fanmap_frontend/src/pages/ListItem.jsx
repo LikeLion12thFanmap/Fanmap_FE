@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import * as L from "../css/styledList";
+import ModalDelete from "./ModalDel";
+import ModalCopy from "./ModalCopy";
 
 const ListItem = ({
   profileImage,
@@ -26,6 +28,8 @@ const ListItem = ({
   const [showPopup2, setShowPopup2] = useState(false);
   const [copyMessage, setCopyMessage] = useState("");
   const [deleteMessage, setDeleteMessage] = useState("");
+  const [delmodal, setDelModal] = useState(false);
+  const [copymodal, setCopyModal] = useState(false);
   const handleClick = () => {
     setShowPopup(true);
   };
@@ -140,7 +144,8 @@ const ListItem = ({
                     alt="edit1img2"
                   />
                 </button>
-                <button id="edit2" onClick={handleClick}>
+
+                <button id="edit2" onClick={() => setCopyModal(true)}>
                   <img
                     id="edit2background"
                     src={`${process.env.PUBLIC_URL}/images/Ellipse16.svg`}
@@ -152,34 +157,11 @@ const ListItem = ({
                     alt="edit2img"
                   />
                 </button>
-                {showPopup && (
-                  <div id="popup">
-                    {!copyMessage && (
-                      <div id="popup-content">
-                        <span id="close" onClick={closePopup}>
-                          &times;
-                        </span>
-                        <p>
-                          해당 글의 링크를 복사해
-                          <br /> 외부로 공유할 수 있습니다.
-                        </p>
-                        <button id="copybtn" onClick={handleCopy}>
-                          <img
-                            id="copy"
-                            src={`${process.env.PUBLIC_URL}/images/Rectangle1.svg`}
-                            alt="copy"
-                          />
-                          <span className="copy-text">복사하기</span>
-                        </button>
-                      </div>
-                    )}
 
-                    {copyMessage && (
-                      <p className="copy-message">{copyMessage}</p>
-                    )}
-                  </div>
-                )}
-                <button id="edit3" onClick={handleClick2}>
+                {/* proprs로 post도 전달 */}
+                {copymodal ? <ModalCopy isClose={setCopyModal} /> : null}
+
+                <button id="edit3" onClick={() => setDelModal(true)}>
                   <img
                     id="edit3background"
                     src={`${process.env.PUBLIC_URL}/images/Ellipse16.svg`}
@@ -191,30 +173,9 @@ const ListItem = ({
                     alt="edit3img"
                   />
                 </button>
-                {showPopup2 && (
-                  <div id="popup2">
-                    {!deleteMessage && (
-                      <div id="popup-content2">
-                        <span id="close2" onClick={closePopup2}>
-                          &times;
-                        </span>
-                        <p>
-                          선택한 글을 리스트에서
-                          <br />
-                          삭제하시겠습니까?
-                        </p>
-                        <button id="deletebtn" onClick={handleDelete}>
-                          <img
-                            id="delete"
-                            src={`${process.env.PUBLIC_URL}/images/Rectangle1.svg`}
-                            alt="delete"
-                          />
-                          <span className="delete-text">삭제하기</span>
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                )}
+
+                {/* proprs로 post도 전달 */}
+                {delmodal ? <ModalDelete isClose={setDelModal} /> : null}
               </>
             )}
           </L.C82>

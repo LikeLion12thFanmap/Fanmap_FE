@@ -3,7 +3,7 @@ export const Container = styled.div`
   position: relative;
   margin: 0 auto;
   width: 390px;
-  height: 100vh;
+  height: 849px;
   background: #402846;
 `;
 export const BackBtn = styled.div`
@@ -16,7 +16,7 @@ export const Nav = styled.div`
   justify-content: space-between;
 
   width: 390px;
-  height: 7vh;
+  height: 51px;
   flex-shrink: 0;
   background: linear-gradient(96deg, #402846 54.12%, #e42a89 96.19%);
 `;
@@ -48,8 +48,8 @@ export const Edit = styled.div`
 `;
 export const Content = styled.div`
   width: 350px;
-  height: 93vh;
-  padding: 23px;
+  height: 750px;
+  padding: 20px;
   overflow-y: auto;
   &::-webkit-scrollbar {
     display: none;
@@ -256,32 +256,31 @@ export const C82 = styled.div`
   .container {
     position: relative;
   }
+`;
+export const CopyBtnContent = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border: 0;
+  z-index: 1000;
+  border-radius: 20px;
 
-  #popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    border: 0;
-    z-index: 1000;
-    border-radius: 20px;
-
-    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.25);
-    max-width: 300px;
-    max-height: 151px;
-    color: #000;
-    text-align: center;
-    font-family: "SUIT Variable";
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-  }
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.25);
+  max-width: 300px;
+  max-height: 151px;
+  color: #000;
+  text-align: center;
+  font-family: "SUIT Variable";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
   #copybtn {
     border: none;
     background: none;
@@ -291,6 +290,7 @@ export const C82 = styled.div`
   }
   #popup-content {
     text-align: center;
+    width: 230px;
   }
   .copy-text {
     position: absolute;
@@ -312,6 +312,7 @@ export const C82 = styled.div`
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    width: 230px;
   }
 
   #close {
@@ -326,54 +327,31 @@ export const C82 = styled.div`
   #close:hover {
     color: black;
   }
-  #popup2 {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    border: 0;
-    z-index: 1000;
-    border-radius: 20px;
+`;
+export const DeleteBtnContent = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border: 0;
+  z-index: 1000;
+  border-radius: 20px;
 
-    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.25);
-    max-width: 300px;
-    max-height: 151px;
-    color: var(--main1, #1d1d1d);
-    text-align: center;
-    font-family: "SUIT Variable";
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-  }
-  #deletebtn {
-    border: none;
-    background: none;
-    outline: none;
-    cursor: pointer;
-    padding: 0;
-  }
-  #popup-content2 {
-    text-align: center;
-  }
-  .delete-text {
-    position: absolute;
-    bottom: 30px;
-    left: 115px;
-    color: #fff;
-
-    font-family: "SUIT Variable";
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
-
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.25);
+  max-width: 300px;
+  max-height: 151px;
+  color: var(--main1, #1d1d1d);
+  text-align: center;
+  font-family: "SUIT Variable";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
   #close2 {
     position: absolute;
     top: 10px;
@@ -385,6 +363,29 @@ export const C82 = styled.div`
 
   #close2:hover {
     color: black;
+  }
+  #popup-content2 {
+    text-align: center;
+  }
+  #deletebtn {
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .delete-text {
+    position: absolute;
+    bottom: 30px;
+    left: 115px;
+    color: #fff;
+
+    font-family: "SUIT Variable";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
   }
 `;
 export const C81 = styled.div`
@@ -444,3 +445,4 @@ export const ListItem = styled.div`
   align-items: center;
   margin-bottom: 20px;
 `;
+export const handleDelete = styled.div``;
