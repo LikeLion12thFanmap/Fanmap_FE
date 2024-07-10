@@ -17,7 +17,7 @@ export const Nav = styled.div`
   justify-content: space-between;
 
   width: 390px;
-  height: 7vh;
+  height: 51px;
   flex-shrink: 0;
 
   background: #402846;
@@ -55,6 +55,7 @@ export const Content = styled.div`
   padding-right: 30px;
   padding-top: 10px;
   #inputTitle {
+    width: 320px;
     color: var(--main1, #1d1d1d);
     font-family: "Noto Sans KR";
     font-size: 16px;
@@ -62,6 +63,7 @@ export const Content = styled.div`
     font-weight: 700;
     line-height: normal;
     border: none;
+    padding: 0;
   }
 
   & > * {
@@ -71,36 +73,52 @@ export const Content = styled.div`
 `;
 export const Box = styled.div`
   display: inline-flex;
-  padding: 1px 162px 1px 20px;
-
-  border-radius: 5px;
-  background: #dbcfde;
-  color: #402846;
-  font-family: "Noto Sans KR";
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: normal;
-  #clip {
-    margin-right: 5px;
-  }
-`;
-export const Box2 = styled.div`
-  display: inline-flex;
-  padding: 1px 123px 1px 20px;
+  padding: 7px 5px 7px 10px;
   align-items: center;
 
   border-radius: 5px;
   background: #dbcfde;
-  color: var(--main2, #402846);
+  /* 본문 */
+
+  input {
+    width: 282px;
+    border: none;
+    color: var(--main2, #402846);
+    background: #dbcfde;
+    font-family: "SUIT Variable";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  #clip {
+    width: 11px;
+    height: 13px;
+    margin-right: 10px;
+  }
+`;
+export const Box2 = styled.div`
+  display: inline-flex;
+  padding: 7px 5px 7px 10px;
+  align-items: center;
+
+  border-radius: 5px;
+  background: #dbcfde;
 
   /* 본문 */
-  font-family: "SUIT Variable";
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+
+  input {
+    width: 282px;
+    border: none;
+    background: #dbcfde;
+    color: var(--main2, #402846);
+    font-family: "SUIT Variable";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
   #place {
-    margin-right: 5px;
+    margin-right: 10px;
   }
 `;
