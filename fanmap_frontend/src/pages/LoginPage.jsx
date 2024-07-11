@@ -10,21 +10,24 @@ function LoginPage() {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    try {
-      const response = await axios.post("http://127.0.0:8000/accounts/login", {
-        username:username,
-        password:password
+    try { //response에 사용자 정보 저장
+      const response = await axios.post("http://127.0.0.1:8000/accounts/login/", {
+        username: username,
+        password: password
       });
-      navigate("/main");
+  
+      console.log(response.data); // 서버로부터 받은 데이터 콘솔에 출력
+      localStorage.setItem("token",response.data.token); 
+      navigate("/main"); // 로그인 성공 후 메인 페이지로 이동
+  
     } catch (error) {
       setError("로그인에 실패했습니다.");
-
+  
       setTimeout(() => {
         setError("");
       }, 2000);
     }
   };
-
   return (
     <div className={styles.container}>
       <img src="img/login_bg.png" alt="bg" />
