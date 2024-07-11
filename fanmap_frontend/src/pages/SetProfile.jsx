@@ -1,63 +1,61 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "../axiosSetup";
+import axios from 'axios';
 import { useLocation } from "react-router-dom";
 import styles from "../css/StyledSetProfile.module.css";
 
 function SetProfile() {
-  const navigate = useNavigate(); 
-  const location = useLocation();
-  //회원가입 step1 때 부여된 user_id를 navigate시 넘겨받음
-  const userId = location.state.userId;
-  const [formData, setFormData] = useState({
-    userid: '',
-    pw: '',
-    pwCheck: '',
-    age: 'none',
-    gender: 'none',
-    email: '',
-    emailDomain: 'none',
-    nickname: '',
-    birth_date: '',
-    favorite_star: 'none'
-  });
-  //입력 값 변경 처리
-  const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === 'checkbox' ? checked : value,
+    const navigate = useNavigate();
+    const location = useLocation();
+    const userId = location.state.userId;
+    const [formData, setFormData] = useState({
+      userid: '',
+      pw: '',
+      pwCheck: '',
+      age: 'none',
+      gender: 'none',
+      email: '',
+      emailDomain: 'none',
+      nickname: '',
+      birth_date: '',
+      favorite_star: 'none'
     });
-  };
-    //api 요청 데이터 형식에 맞춰 전송
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(userId);
-    const { age, gender, nickname, birth_date, favorite_star } = formData;
-    const dataToSend = {
-        user_id: userId,
-        age: age,
-        gender: gender === 'female' ? 'W' : gender === 'male' ? 'M' : 'O',
-        profile: null,
-        birth_date: birth_date,
-        favorite_star: favorite_star,
-        nickname: nickname,
-
+  
+    const handleInputChange = (e) => {
+      const { name, value, type, checked } = e.target;
+      setFormData({
+        ...formData,
+        [name]: type === 'checkbox' ? checked : value,
+      });
     };
-    try {
-      const response = await axios.post('http://127.0.0.1:8000/accounts/register/step2/', dataToSend);
-      if (response.status === 200) {
-        navigate("/main");
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      console.log(userId);
+      const { age, gender, nickname, birth_date, favorite_star } = formData;
+      const dataToSend = {
+          user_id: userId,
+          age: age,
+          gender: gender === 'female' ? 'W' : gender === 'male' ? 'M' : 'O',
+          profile: null,
+          birth_date: birth_date,
+          favorite_star: favorite_star,
+          nickname: nickname,
+  
+      };
+  
+      try {
+        const response = await axios.post('http://127.0.0.1:8000/accounts/register/step2/', dataToSend) 
+        if (response.status === 200) {
+          navigate("/main");
+        }
+      } catch (error) {
+        console.error("정보전송에 실패했습니다.", error);
       }
-    } catch (error) {
-      console.error("정보전송에 실패했습니다.", error);
-    }
-  };
-    //뒤로 가기 버튼
-  const backBtn = () => {
-    navigate(-1);
-  };
-
+    };
+    const backBtn = () => {
+      navigate(-1);
+    };
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit}>

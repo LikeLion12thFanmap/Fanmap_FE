@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "../axiosSetup";
+import axios from 'axios';
 import styles from "../css/StyledMembership.module.css";
 
 function Membership() {
   const navigate = useNavigate();
 
-  //회원가입 연동부분
-  //입력 전 상태 관리
+  // 입력 상태 관리
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -18,8 +17,10 @@ function Membership() {
     agreementService: false,
     agreementMarketing: false
   });
+  // 사용자 ID 상태 관리
+  const [userId, setUserId] = useState(null); 
 
-  //입력 값 변경 처리
+  // 입력 값 변경 처리
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData(prevState => ({
@@ -27,37 +28,40 @@ function Membership() {
       [name]: type === "checkbox" ? checked : value
     }));
   };
-  //회원가입 후 부여되는 id 값 상태 관리
-  const [userId, setUserId] = useState(null);
+
+  // 회원가입 완료 처리
   const handleComplete = () => {
     if (!formData.username || !formData.password || !formData.passwordConfirm) {
       alert("아이디와 비밀번호는 필수 입력 항목입니다.");
       return;
     }
-    //이메일 입력시 도메인과 합쳐주는 코드
+
+    // 이메일 입력시 도메인과 합쳐주는 코드
     let email = formData.email;
     if (formData.email && formData.emailDomain !== "none") {
-      email = `${formData.username}${formData.emailDomain}`;
+      email = `${formData.email}${formData.emailDomain}`;
     }
-    //api 요청 데이터 
+
+    // API 요청 데이터
     const requestData = {
       username: formData.username,
       password: formData.password,
       password_confirm: formData.passwordConfirm,
       email: email
     };
-    //사용자등록 API 호출
+
+    // 사용자 등록 API 호출
     axios.post("http://127.0.0.1:8000/accounts/register/step1/", requestData)
       .then(response => {
         console.log("Step 1 completed. Proceed to step 2.", response.data);
-        const receivedUserId = response.data.userId; 
-        sessionStorage.setItem("user_id",receivedUserId);
+        const receivedUserId = response.data.userId;
 
-        //서버에서 부여해준 사용자 아이디 저장
+        // 서버에서 부여해준 사용자 아이디 저장
         console.log("Received userId:", receivedUserId);
         setUserId(receivedUserId);
-        //setprofile로 이동시 사용자 아이디 값 함께 전달
-        navigate("/setprofile", { state: { userId: receivedUserId } })
+
+        // setprofile로 이동시 사용자 아이디 값 함께 전달
+        navigate("/setprofile", { state: { userId: receivedUserId } });
       })
       .catch(error => {
         console.error("Error while registering:", error);
@@ -66,7 +70,7 @@ function Membership() {
   };
 
   const handleBackClick = () => {
-    navigate(-1); 
+    navigate(-1);
   };
 
   return (
@@ -131,7 +135,7 @@ function Membership() {
               <div className={styles.fx0}>이메일</div>
               <div className={styles.fx3}>
                 <input
-                  type="email"
+                  type="text"
                   placeholder="이메일을 입력하세요."
                   className={`${styles.emailBox} ${styles.defaultStyleNone}`}
                   name="email"
@@ -140,7 +144,6 @@ function Membership() {
                 />
                 <select
                   name="emailDomain"
-                  id="email-domain"
                   className={`${styles.ddBoxEmail} ${styles.defaultStyleNone}`}
                   value={formData.emailDomain}
                   onChange={handleInputChange}

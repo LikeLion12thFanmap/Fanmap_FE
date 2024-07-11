@@ -1,2 +1,2 @@
-# Fanmap_FE
-DRF 팀프로젝트 - Fanmap_FE
+# Fanmap_BE
+DRF 팀프로젝트 - Fanmap_BE

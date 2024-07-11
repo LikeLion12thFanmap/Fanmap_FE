@@ -4,19 +4,17 @@ import axios from "axios";
 import styles from "../css/StyledLoginPage.module.css";
 
 function LoginPage() {
-  const [id, setId] = useState("");
+  const [username, setId] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post("/accounts/login", {
-        id,
-        password
+      const response = await axios.post("http://127.0.0:8000/accounts/login", {
+        username:username,
+        password:password
       });
-      const { token, user_id, email } = response.data;
-      localStorage.setItem("token", token);
       navigate("/main");
     } catch (error) {
       setError("로그인에 실패했습니다.");
@@ -36,15 +34,15 @@ function LoginPage() {
         <div className={styles.loginWp}>
           <input
             className={styles.loginBox}
-            name="id"
+            name="username"
             type="text"
             placeholder="아이디"
-            value={id}
+            value={username}
             onChange={(e) => setId(e.target.value)}
           />
           <input
             className={styles.loginBox}
-            name="pw"
+            name="password"
             type="password"
             placeholder="비밀번호"
             value={password}
