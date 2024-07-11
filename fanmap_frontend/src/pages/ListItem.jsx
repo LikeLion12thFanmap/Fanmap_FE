@@ -15,7 +15,7 @@ const ListItem = ({
   starImage,
   chatIcon,
   addMylistImage,
-  editVisible: initialEditVisible,
+  editVisible,
 }) => {
   const [count, setCount] = useState(371);
   const [isIncrease, setIsIncrease] = useState(true);
@@ -26,50 +26,10 @@ const ListItem = ({
   const [isItClicked, setIsItClicked] = useState(false);
   const [editVisible, setEditVisible] = useState(false);
 
-  const [showPopup, setShowPopup] = useState(false);
-  const [showPopup2, setShowPopup2] = useState(false);
-  const [copyMessage, setCopyMessage] = useState("");
-  const [deleteMessage, setDeleteMessage] = useState("");
   const [delmodal, setDelModal] = useState(false);
   const [copymodal, setCopyModal] = useState(false);
   const { id } = useParams();
-  const handleClick = () => {
-    setShowPopup(true);
-  };
 
-  const closePopup = () => {
-    setShowPopup(false);
-  };
-  const handleCopy = () => {
-    navigator.clipboard.writeText("링크 복사 내용"); // 실제 클립보드에 복사하는 코드
-
-    setCopyMessage(
-      <p>
-        복사 완료!
-        <br />
-        이제 링크를 붙여넣어
-        <br />
-        글을 공유해보세요.
-      </p>
-    );
-    setTimeout(() => {
-      setShowPopup(false);
-      setCopyMessage("");
-    }, 1000);
-  };
-  const handleClick2 = () => {
-    setShowPopup2(true); // 팝업 표시
-  };
-  const handleDelete = () => {
-    setTimeout(() => {
-      setShowPopup2(false);
-      setDeleteMessage("");
-    });
-  };
-
-  const closePopup2 = () => {
-    setShowPopup2(false); // 팝업 닫기
-  };
   const handleButtonClick = () => {
     if (isIncrease) {
       setCount(count - 1);
@@ -103,7 +63,8 @@ const ListItem = ({
         <L.C3>@{username}</L.C3>
         <L.C4>{date}</L.C4>
         <L.C5>{content}</L.C5>
-        <L.C6>{img && <img src={img} alt="images" />}</L.C6>
+        <L.C6>{img && <img src={img} alt="images" />}</L.C6>{" "}
+        {/* 이미지 출력 (있을 경우에만) */}
         <L.C7>
           <button onClick={handleButtonClick} id="star">
             <img src={starImage} alt="Star" />
@@ -130,6 +91,8 @@ const ListItem = ({
           <L.C82>
             {editVisible && (
               <>
+                {" "}
+                {/* 리스트 관리 창이 열려 있을 때만 아래 버튼들을 보여줌 */}
                 <button id="edit1">
                   <img
                     id="edit1background"
@@ -148,7 +111,6 @@ const ListItem = ({
                   />
                   <p id="edit1p">순서 변경</p>
                 </button>
-
                 <button id="edit2" onClick={() => setCopyModal(true)}>
                   <img
                     id="edit2background"
@@ -162,10 +124,8 @@ const ListItem = ({
                   />
                   <p id="edit2p">공유</p>
                 </button>
-
-                {/* proprs로 post도 전달 */}
-                {copymodal ? <ModalCopy isClose={setCopyModal} /> : null}
-
+                {copymodal ? <ModalCopy isClose={setCopyModal} /> : null}{" "}
+                {/* 복사 모달 출력 */}
                 <button id="edit3" onClick={() => setDelModal(true)}>
                   <img
                     id="edit3background"
@@ -179,9 +139,8 @@ const ListItem = ({
                   />
                   <p id="edit3p">삭제</p>
                 </button>
-
-                {/* proprs로 post도 전달 */}
-                {delmodal ? <ModalDelete isClose={setDelModal} /> : null}
+                {delmodal ? <ModalDelete isClose={setDelModal} /> : null}{" "}
+                {/* 삭제 모달 출력 */}
               </>
             )}
           </L.C82>

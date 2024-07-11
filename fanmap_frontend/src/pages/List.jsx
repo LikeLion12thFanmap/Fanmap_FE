@@ -11,6 +11,9 @@ const List = () => {
   const goBack = () => {
     navigate("/");
   };
+  {
+    /*list연동*/
+  }
   const [ListItems, setItemsList] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -26,6 +29,7 @@ const List = () => {
 
   return (
     <L.Container>
+      {/*상단nav바*/}
       <L.Nav>
         <L.BackBtn onClick={goBack}>
           <img
@@ -46,6 +50,7 @@ const List = () => {
 
       <L.Content>
         <L.StyledList>
+          {/* 각 리스트 아이템 컴포넌트 이용*/}
           {ListItems.map((e) => (
             <ListItem
               key={e.id}

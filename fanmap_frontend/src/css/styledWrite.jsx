@@ -15,11 +15,9 @@ export const BackBtn = styled.div`
 export const Nav = styled.div`
   display: flex;
   justify-content: space-between;
-
   width: 390px;
   height: 7vh;
   flex-shrink: 0;
-
   background: #402846;
 `;
 export const Title = styled.div`
@@ -77,7 +75,6 @@ export const Box = styled.div`
 
   border-radius: 5px;
   background: #dbcfde;
-  /* 본문 */
 
   input {
     width: 282px;
@@ -103,8 +100,6 @@ export const Box2 = styled.div`
 
   border-radius: 5px;
   background: #dbcfde;
-
-  /* 본문 */
 
   input {
     width: 282px;

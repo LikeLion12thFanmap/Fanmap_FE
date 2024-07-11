@@ -7,6 +7,9 @@ import { useState, useEffect } from "react";
 
 const Community = () => {
   const navigate = useNavigate();
+  {
+    /*community 연동*/
+  }
   const [ListItems, setItemsList] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -29,6 +32,7 @@ const Community = () => {
 
   return (
     <C.Container>
+      {/*페이지 상단 nav바*/}
       <C.Nav>
         <C.BackBtn onClick={goBack}>
           <img
@@ -52,6 +56,7 @@ const Community = () => {
       </C.Nav>
       <C.Content>
         <C.StyledList>
+          {/*컴포넌트 이용 CommunityItem*/}
           {ListItems.map((e) => (
             <CommunityItem
               key={e.id}
