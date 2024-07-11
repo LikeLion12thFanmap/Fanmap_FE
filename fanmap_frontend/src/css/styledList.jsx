@@ -14,7 +14,6 @@ export const BackBtn = styled.div`
 export const Nav = styled.div`
   display: flex;
   justify-content: space-between;
-
   width: 390px;
   height: 51px;
   flex-shrink: 0;
@@ -94,7 +93,7 @@ export const C3 = styled.div`
   font-weight: 200;
   line-height: normal;
   position: absolute;
-  top: 25px;
+  top: 28px;
   left: 56px;
 `;
 export const C4 = styled.div`
@@ -191,7 +190,7 @@ export const C8 = styled.div`
   #edit1img{
     
     position: absolute;
-    bottom: 20px;
+    top: 7px;
     right: 18px;
     
     z-index:2;
@@ -199,11 +198,25 @@ export const C8 = styled.div`
   #edit1img2{
     
     position: absolute;
-    bottom: 20px;
+    top: 7px;
     right: 9px;
-    
     z-index:2;
   }
+  #edit1p{
+    position: absolute;
+    top: 23px;
+    right: 6px; 
+    color: #FFF;
+    font-family: "SUIT Variable";
+    font-size: 5px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin:0;
+    z-index:2;
+
+  }
+  
   #edit2 {
     border: none;
     background: none;
@@ -218,11 +231,22 @@ export const C8 = styled.div`
     z-index:1;
   }
   #edit2img{
-    
     position: absolute;
-    bottom: 20px;
-    right: 12px;
-    
+      top: 5px;
+      right: 11.5px;
+      z-index:2;
+  }
+  #edit2p{
+    position: absolute;
+    top: 23px;
+    right: 12px; 
+    color: #FFF;
+    font-family: "SUIT Variable";
+    font-size: 5px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin:0;
     z-index:2;
   }
   #edit3 {
@@ -242,10 +266,24 @@ export const C8 = styled.div`
     #edit3img{
       
       position: absolute;
-      bottom: 20px;
-      right: 11px;
-      
+      top: 6px;
+      right: 10px;
       z-index:2;
+    }
+    
+    #edit3p{
+      position: absolute;
+      top: 23px;
+      right: 12px;
+      color: #FFF;
+      font-family: "SUIT Variable";
+      font-size: 5px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin:0;
+      z-index:2;
+
     }
   }
 `;

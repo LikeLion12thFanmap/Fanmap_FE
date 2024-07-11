@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import ListItem from "./ListItem";
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 import * as L from "../css/styledList";
 
 const List = () => {
@@ -10,6 +11,18 @@ const List = () => {
   const goBack = () => {
     navigate("/");
   };
+  const [ListItems, setItemsList] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://127.0.0.1:8000/community");
+        setItemsList(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <L.Container>
@@ -33,6 +46,19 @@ const List = () => {
 
       <L.Content>
         <L.StyledList>
+          {ListItems.map((e) => (
+            <ListItem
+              key={e.id}
+              img={e.image}
+              nickname={e.nickname}
+              username={e.userid}
+              date={e.created_at}
+              content={e.content}
+              starImage={`${process.env.PUBLIC_URL}/images/Star.svg`}
+              chatIcon={`${process.env.PUBLIC_URL}/images/chatIcon.svg`}
+              addMylistImage={`${process.env.PUBLIC_URL}/images/Rectangle21.svg`}
+            />
+          ))}
           {/* 리스트 아이템 1 */}
           <ListItem
             profileImage={`${process.env.PUBLIC_URL}/images/profileImage.svg`}
