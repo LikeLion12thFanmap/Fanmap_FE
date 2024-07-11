@@ -1,13 +1,12 @@
 @import url('https://webfontworld.github.io/sunn/SUIT.css');
+
 .fx {
   display: flex;
   align-items: center;
+  padding-bottom: 20px;
 }
 .fx0 {
   flex: 0.8;
-}
-.fx1 {
-  flex: 1.2;
 }
 .fx3 {
   flex: 3;
@@ -24,12 +23,7 @@
   display: block;
   color: #fff;
 }
-.joinTitle {
-  font-size: 16px;
-  margin-top: 60px;
-  margin-bottom: 40px;
 
-}
 .notif {
   color: var(--point1, #e42a89);
   font-size: 8px;
@@ -44,6 +38,7 @@
   margin-top: 30px;
   font-size: 12px;
 }
+
 .defaultStyleNone,
 emailBox::placeholder,
 input[type="date"] {
@@ -54,10 +49,7 @@ input[type="date"] {
   font-size: 10px;
   color: #575050;
 }
-.inputBox {
-  width: 200px;
-  height: 22px;
-}
+
 .ddBox {
   width: 60px;
   height: 23px;
@@ -66,33 +58,20 @@ input[type="date"] {
 input {
   padding-left: 10px;
 }
-.emailBox {
-  width: 120px;
-  height: 21px;
-  margin-right: 10px;
-  color:  #1D1D1D;
-  font-family: "SUIT Variable";
-  font-size: 10px;
-  font-weight: 200;
-}
 
-.ddBoxEmail {
-  width: 85px;
-  height: 23px;
-  text-align: center;
-}
 .profileImg {
   float: left;
   margin-top: 20px;
+  position: relative;
+  bottom: 20px;
 }
 .addImg{
   display: inline-block;
   position: relative;
   right: 15px
 }
-.profileTitle,
-.agreementTitle {
-  margin-top: 30px;
+.profileTitle{
+  margin-top: 70px;
   margin-bottom: 10px;
 }
 
@@ -108,11 +87,6 @@ input {
   position: relative;
   bottom: 20px;
   left: 16px;
-}
-.birDate {
-  position: relative;
-  margin-top: 5px;
-  margin-left: 15px;
 }
 
 input[type="date"] {
@@ -161,18 +135,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   position: relative;
   right: 15px;
 }
-.agreementWrapper{
-  position: relative;
-  bottom: 25px;
-  padding-top: 60px;
-}
-
-.agreement {
-  color: #fff;
-  font-size: 12px;
-  font-weight: 300;
-  margin-top: 7px;
-}
 
 input[type="checkbox"] {
   margin-right: 13px;
@@ -192,7 +154,6 @@ input[type="checkbox"]:checked {
 }
 .completeBtn {
   position: relative;
-  bottom: 10px;
   right: 20px;
   margin-top: 55px;
   margin-left: 30px;
@@ -216,13 +177,13 @@ input[type="checkbox"]:checked {
   top: 15px;
 }
 
+
 .signupTitle{
   color: #FFF;
   font-family: "SUIT Variable";
   font-size: 32px;
   font-weight: 800;
-  letter-spacing: 0.32px; 
-  position: relative;
+  letter-spacing: 0.32px; position: relative;
   top: 40px; 
   padding-bottom: 40px;
 }
@@ -241,4 +202,8 @@ input[type="checkbox"]:checked {
   position: relative;
   right: 140px;
   top: 2px;
+}
+
+.profile{
+  margin-top: 80px;
 }
