@@ -14,7 +14,6 @@ export const BackBtn = styled.div`
 export const Nav = styled.div`
   display: flex;
   justify-content: space-between;
-
   width: 390px;
   height: 51px;
   flex-shrink: 0;
@@ -94,7 +93,7 @@ export const C3 = styled.div`
   font-weight: 200;
   line-height: normal;
   position: absolute;
-  top: 25px;
+  top: 28px;
   left: 56px;
 `;
 export const C4 = styled.div`

@@ -1,9 +1,23 @@
 import React from "react";
 import * as L from "../css/styledList";
-
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const ModalDelete = (props) => {
   const { isClose } = props; // post 추가
+  const navigate = useNavigate();
+
+  const handleDelete = () => {
+    axios
+      .delete("/community/${community.id}")
+      .then(() => {
+        console.log("삭제 성공");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    navigate("/list");
+  };
 
   return (
     <L.DeleteBtnContent>
@@ -22,12 +36,7 @@ const ModalDelete = (props) => {
           <br />
           삭제하시겠습니까?
         </p>
-        <button
-          id="deletebtn"
-          onClick={() => {
-            isClose(false);
-          }}
-        >
+        <button id="deletebtn" onClick={handleDelete}>
           <img
             id="delete"
             src={`${process.env.PUBLIC_URL}/images/Rectangle1.svg`}

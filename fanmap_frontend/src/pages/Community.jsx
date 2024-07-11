@@ -2,9 +2,23 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import * as C from "../css/styledCommunity";
 import CommunityItem from "./CommunityItem";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const Community = () => {
   const navigate = useNavigate();
+  const [ListItems, setItemsList] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://127.0.0.1:8000/community");
+        setItemsList(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
   const goBack = () => {
     navigate("/main");
   };
@@ -38,6 +52,19 @@ const Community = () => {
       </C.Nav>
       <C.Content>
         <C.StyledList>
+          {ListItems.map((e) => (
+            <CommunityItem
+              key={e.id}
+              img={e.image}
+              nickname={e.nickname}
+              username={e.userid}
+              date={e.created_at}
+              content={e.content}
+              starImage={`${process.env.PUBLIC_URL}/images/Star.svg`}
+              chatIcon={`${process.env.PUBLIC_URL}/images/chatIcon.svg`}
+              addMylistImage={`${process.env.PUBLIC_URL}/images/Rectangle21.svg`}
+            />
+          ))}
           <CommunityItem
             nickname="nickname1"
             username="@aakw1234"

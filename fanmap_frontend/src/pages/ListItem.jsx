@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import * as L from "../css/styledList";
 import ModalDelete from "./ModalDel";
 import ModalCopy from "./ModalCopy";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const ListItem = ({
   profileImage,
@@ -30,6 +32,7 @@ const ListItem = ({
   const [deleteMessage, setDeleteMessage] = useState("");
   const [delmodal, setDelModal] = useState(false);
   const [copymodal, setCopyModal] = useState(false);
+  const { id } = useParams();
   const handleClick = () => {
     setShowPopup(true);
   };
@@ -97,7 +100,7 @@ const ListItem = ({
           <img src={profileImage} alt="" />
         </L.C1>
         <L.C2>{nickname}</L.C2>
-        <L.C3>{username}</L.C3>
+        <L.C3>@{username}</L.C3>
         <L.C4>{date}</L.C4>
         <L.C5>{content}</L.C5>
         <L.C6>{img && <img src={img} alt="images" />}</L.C6>
