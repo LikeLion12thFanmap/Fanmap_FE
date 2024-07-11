@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import * as L from "../css/styledList";
 
 const ModalCopy = (props) => {
-  const { isClose } = props; // post 추가
+  const { isClose } = props;
   const [copyMessage, setCopyMessage] = useState("");
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("링크 복사 내용"); // Replace with actual content to copy
+    navigator.clipboard.writeText("링크 복사 내용"); //링크 복사, 1분 뒤 복사완료 창 닫힘
 
     setCopyMessage(
       <p>
@@ -19,15 +19,17 @@ const ModalCopy = (props) => {
     );
 
     setTimeout(() => {
-      isClose(false); // Close the modal after timeout
+      isClose(false);
       setCopyMessage("");
-    }, 1000); // Correct usage: setTimeout takes a function as the first argument
+    }, 1000);
   };
 
   return (
     <L.CopyBtnContent>
+      {/* 복사 메시지가 없는 경우에만 팝업 내용을 표시 */}
       {!copyMessage && (
         <div id="popup-content">
+          {/* 팝업 닫기 버튼 */}
           <span
             id="close"
             onClick={() => {
@@ -41,6 +43,8 @@ const ModalCopy = (props) => {
             해당 글의 링크를 복사해
             <br /> 외부로 공유할 수 있습니다.
           </p>
+
+          {/* 복사하기 버튼 */}
           <button id="copybtn" onClick={handleCopy}>
             <img
               id="copy"
@@ -51,6 +55,8 @@ const ModalCopy = (props) => {
           </button>
         </div>
       )}
+
+      {/* 복사 메시지가 있는 경우에는 복사 완료 메시지를 표시 */}
       {copyMessage && <p className="copy-message">{copyMessage}</p>}
     </L.CopyBtnContent>
   );

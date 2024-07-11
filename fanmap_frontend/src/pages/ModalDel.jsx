@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const ModalDelete = (props) => {
-  const { isClose } = props; // post 추가
+  const { isClose } = props;
   const navigate = useNavigate();
 
   const handleDelete = () => {
@@ -22,6 +22,7 @@ const ModalDelete = (props) => {
   return (
     <L.DeleteBtnContent>
       <div id="popup-content2">
+        {/* 팝업 닫기 버튼 */}
         <span
           id="close2"
           onClick={() => {
@@ -36,6 +37,7 @@ const ModalDelete = (props) => {
           <br />
           삭제하시겠습니까?
         </p>
+        {/* 삭제하기 버튼 */}
         <button id="deletebtn" onClick={handleDelete}>
           <img
             id="delete"
