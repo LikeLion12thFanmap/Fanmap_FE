@@ -5,8 +5,9 @@ import { useLocation } from "react-router-dom";
 import styles from "../css/StyledSetProfile.module.css";
 
 function SetProfile() {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
   const location = useLocation();
+  //회원가입 step1 때 부여된 user_id를 navigate시 넘겨받음
   const userId = location.state.userId;
   const [formData, setFormData] = useState({
     userid: '',
@@ -20,7 +21,7 @@ function SetProfile() {
     birth_date: '',
     favorite_star: 'none'
   });
-
+  //입력 값 변경 처리
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({
@@ -28,7 +29,7 @@ function SetProfile() {
       [name]: type === 'checkbox' ? checked : value,
     });
   };
-
+    //api 요청 데이터 형식에 맞춰 전송
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(userId);
@@ -43,7 +44,6 @@ function SetProfile() {
         nickname: nickname,
 
     };
-
     try {
       const response = await axios.post('http://127.0.0.1:8000/accounts/register/step2/', dataToSend);
       if (response.status === 200) {
@@ -53,7 +53,7 @@ function SetProfile() {
       console.error("정보전송에 실패했습니다.", error);
     }
   };
-
+    //뒤로 가기 버튼
   const backBtn = () => {
     navigate(-1);
   };
