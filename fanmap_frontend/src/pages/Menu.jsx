@@ -8,7 +8,10 @@ function Menu({ onClose }) { // onClose 함수를 props로 받습니다.
   const handleLogout = () => {
     navigate("/login");
   };
-
+  function goToModifyProfile(){
+    console.log("clicked!");
+    navigate("/modifyProfile");
+  }
   return (
     <div className={E.container}>
       <div className={E.innerContainer}>
@@ -20,7 +23,7 @@ function Menu({ onClose }) { // onClose 함수를 props로 받습니다.
         <div className={E.menulist}>
           <div className={E.mypageTitle}>
             My Page
-            <div className={E.modifyProfile}>프로필 수정</div>
+            <div className={E.modifyProfile} onClick={goToModifyProfile}>프로필 수정</div>
           </div>
           <div className={E.mylistTitle}>
             내 리스트

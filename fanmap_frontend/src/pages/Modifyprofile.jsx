@@ -1,34 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import M from "../css/StyledMembership.module.css";
+import styles from "../css/StyledModifyProfile.module.css";
 
 function ModifyProfile() {
   const navigate = useNavigate();
+  const [profileImage, setProfileImage] = useState("img/profile.png");
+  const [fileInputVisible, setFileInputVisible] = useState(false);
 
   const handleComplete = () => {
     navigate("/main");
   };
 
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfileImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleClickAddImage = () => {
+    // 이미지 클릭 시 파일 선택 input 보이게 설정
+    const fileInput = document.getElementById("file-upload");
+    if (fileInput) {
+      fileInput.click();
+    }
+    console.log("clicked!");
+  };
+
   return (
-    <div className={M.form}>
-      <div className={`${M.join} ${M["join-title"]}`}>
+    <div className={styles.form}>
+      <div className={`${styles.join} ${styles.joinTitle}`}>
         <div>
           내 정보 수정
-          <span className={`${M.pt} ${M.noti}`}>
+          <span className={`${styles.pt} ${styles.notif}`}>
             *표시는 필수 입력 항목입니다.
           </span>
         </div>
         <div
-          className={`${M["id-wrapper"]} ${M.wp}`}
+          className={`${styles.idWrapper} ${styles.wp}`}
           style={{ marginTop: "20px" }}
         >
-          <div className={M.fx}>
-            <div className={`${M["fx-1"]}`}>
-              <span className={M.pt}>*</span>아이디
+          <div className={styles.fx}>
+            <div className={`${styles.fx0}`}>
+              <span className={styles.pt}>*</span>아이디
             </div>
-            <div className={`${M["fx-3"]}`}>
+            <div className={`${styles.fx3}`}>
               <input
-                className={`${M["input-box"]} ${M["default-style-none"]}`}
+                className={`${styles.inputBox} ${styles.defaultStyleNone}`}
                 name="id"
                 type="text"
                 placeholder="아이디를 입력하세요."
@@ -36,14 +58,14 @@ function ModifyProfile() {
             </div>
           </div>
         </div>
-        <div className={`${M["pw-wrapper"]} ${M.wp}`}>
-          <div className={M.fx}>
-            <div className={`${M["fx-1"]}`}>
-              <span className={M.pt}>*</span>비밀번호
+        <div className={`${styles.pwWrapper} ${styles.wp}`}>
+          <div className={styles.fx}>
+            <div className={`${styles.fx0}`}>
+              <span className={styles.pt}>*</span>비밀번호
             </div>
-            <div className={`${M["fx-3"]}`}>
+            <div className={`${styles.fx3}`}>
               <input
-                className={`${M["input-box"]} ${M["default-style-none"]}`}
+                className={`${styles.inputBox} ${styles.defaultStyleNone}`}
                 name="pw"
                 type="password"
                 placeholder="비밀번호를 입력하세요."
@@ -51,29 +73,29 @@ function ModifyProfile() {
             </div>
           </div>
         </div>
-        <div className={`${M["pw-check-wrapper"]} ${M.wp}`}>
-          <div className={M.fx}>
-            <div className={`${M["fx-1"]}`}>
-              <span className={M.pt}>*</span>비밀번호 재확인
+        <div className={`${styles.pwCheckWrapper} ${styles.wp}`}>
+          <div className={styles.fx}>
+            <div className={`${styles.fx0}`}>
+              <span className={styles.pt}>*</span>비밀번호 재확인
             </div>
-            <div className={`${M["fx-3"]}`}>
+            <div className={`${styles.fx3}`}>
               <input
-                className={`${M["input-box"]} ${M["default-style-none"]}`}
-                name="pw-check"
+                className={`${styles.inputBox} ${styles.defaultStyleNone}`}
+                name="pwCheck"
                 type="password"
                 placeholder="비밀번호를 입력하세요."
               />
             </div>
           </div>
         </div>
-        <div className={`${M["age-wrapper"]} ${M.wp}`}>
-          <div className={M.fx}>
-            <div className={`${M["fx-0"]}`}>연령대</div>
-            <div className={`${M["fx-3"]}`}>
+        <div className={`${styles.ageWrapper} ${styles.wp}`}>
+          <div className={styles.fx}>
+            <div className={`${styles.fx0}`}>연령대</div>
+            <div className={`${styles.fx3}`}>
               <select
                 name="agerange"
                 id="age"
-                className={`${M["dd-box"]} ${M["default-style-none"]}`}
+                className={`${styles.ddBox} ${styles.defaultStyleNone}`}
               >
                 <option value="none" selected>
                   선택
@@ -88,38 +110,38 @@ function ModifyProfile() {
             </div>
           </div>
         </div>
-        <div className={`${M["gender-wrapper"]} ${M.wp}`}>
-          <div className={M.fx}>
-            <div className={`${M["fx-0"]}`}>성별</div>
-            <div className={`${M["fx-3"]}`}>
+        <div className={`${styles.genderWrapper} ${styles.wp}`}>
+          <div className={styles.fx}>
+            <div className={`${styles.fx0}`}>성별</div>
+            <div className={`${styles.fx3}`}>
               <select
                 name="gender"
                 id="gender"
-                className={`${M["dd-box"]} ${M["default-style-none"]}`}
+                className={`${styles.ddBox} ${styles.defaultStyleNone}`}
               >
                 <option value="none" selected>
                   선택
                 </option>
                 <option value="female">여자</option>
                 <option value="male">남자</option>
-                <option value="etc-gen">기타</option>
+                <option value="etcGen">기타</option>
               </select>
             </div>
           </div>
         </div>
-        <div className={`${M["email-wrapper"]} ${M.wp}`}>
-          <div className={M.fx}>
-            <div className={`${M["fx-0"]}`}>이메일</div>
-            <div className={`${M["fx-3"]}`}>
+        <div className={`${styles.emailWrapper} ${styles.wp}`}>
+          <div className={styles.fx}>
+            <div className={`${styles.fx0}`}>이메일</div>
+            <div className={`${styles.fx3}`}>
               <input
                 type="email"
                 placeholder="이메일을 입력하세요."
-                className={`${M["email-box"]} ${M["default-style-none"]}`}
+                className={`${styles.emailBox} ${styles.defaultStyleNone}`}
               />
               <select
-                name="email-domain"
-                id="email-domain"
-                className={`${M["dd-email-box"]} ${M["default-style-none"]}`}
+                name="emailDomain"
+                id="emailDomain"
+                className={`${styles.ddBoxEmail} ${styles.defaultStyleNone}`}
               >
                 <option value="none" selected>
                   선택
@@ -133,27 +155,36 @@ function ModifyProfile() {
           </div>
         </div>
       </div>
-      <div className={M.profile}>
-        <div className={M["profile-title"]}>프로필 설정</div>
-        <div className={M["profile-img"]}>
-          <img src="img/profile.png" alt="profile" />
+      <div className={styles.profile}>
+        <div className={styles.profileTitle}>내 프로필</div>
+        <div className={styles.profileImg}>
+          <img src={profileImage} alt="profile" />
+          <img src="img/addImg.png" alt="add image button" className={styles.addImg} onClick={handleClickAddImage}/>
+            {fileInputVisible && (
+            <input
+                type="file"
+                id="file-upload"
+                className={styles.fileInput}
+                onChange={handleImageUpload}
+              />
+            )}
         </div>
-        <div className={`${M["birth-wrapper"]} ${M.wp}`}>
-          <div className={M.fx}>
-            <div className={`${M["fx-0"]} ${M["bir-date"]}`}>생년월일</div>
-            <div className={`${M["fx-3"]}`}>
+        <div className={`${styles.birthWrapper} ${styles.wp}`}>
+          <div className={styles.fx}>
+            <div className={`${styles.fx0} ${styles.birDate}`}>생년월일</div>
+            <div className={`${styles.fx3}`}>
               <input type="date" required placeholder="날짜 선택" />
             </div>
           </div>
         </div>
-        <div className={`${M["star-wrapper"]} ${M.wp}`}>
-          <div className={M.fx}>
-            <div className={`${M["fx-0"]} ${M["my-star"]}`}>내 스타</div>
-            <div className={`${M["fx-3"]}`}>
+        <div className={`${styles.starWrapper} ${styles.wp}`}>
+          <div className={styles.fx}>
+            <div className={`${styles.fx0} ${styles.myStar}`}>내 스타</div>
+            <div className={`${styles.fx3}`}>
               <select
                 name="star"
                 id="star"
-                className={`${M["dd-box"]} ${M["default-style-none"]}`}
+                className={`${styles.ddBox} ${styles.defaultStyleNone}`}
               >
                 <option value="none" selected>
                   선택
@@ -165,15 +196,15 @@ function ModifyProfile() {
                 <option value="athlete">운동선수</option>
                 <option value="model">모델</option>
                 <option value="2D">2D</option>
-                <option value="etc-star">기타</option>
+                <option value="etcStar">기타</option>
               </select>
             </div>
           </div>
         </div>
       </div>
 
-      <div className={M["complete-btn"]} onClick={handleComplete}>
-        <span className={M["complete-cmt"]}>프로필 수정 완료</span>
+      <div className={styles.completeBtn} onClick={handleComplete}>
+        <span className={styles.completeCmt}>프로필 수정 완료</span>
       </div>
     </div>
   );
