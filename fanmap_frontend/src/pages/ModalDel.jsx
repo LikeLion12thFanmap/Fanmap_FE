@@ -4,19 +4,25 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const ModalDelete = (props) => {
-  const { isClose } = props;
+  const isClose = props.isClose;
+  const id = props.id;
+  console.log("idid:", id);
+
   const navigate = useNavigate();
 
   const handleDelete = () => {
     axios
-      .delete("/community/${community.id}")
+      .delete(`http://127.0.0.1:8000/community/${id}`)
       .then(() => {
         console.log("삭제 성공");
+        isClose(false);
+        window.location.reload();
+        navigate("/list");
       })
+
       .catch((error) => {
         console.log(error);
       });
-    navigate("/list");
   };
 
   return (

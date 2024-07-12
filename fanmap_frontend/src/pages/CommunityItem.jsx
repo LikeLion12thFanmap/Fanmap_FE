@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import * as C from "../css/styledCommunity";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const CommunityItem = ({
+  key,
+  postId,
   profileImage,
   nickname,
   username,
@@ -13,12 +17,48 @@ const CommunityItem = ({
   coImg,
   coContent,
 }) => {
+  const navigate = useNavigate();
   const [isIncrease, setIsIncrease] = useState(true); // 카운트 증가/감소 여부 상태
   const [count, setCount] = useState(370); // 초기 카운트 값
   const [isClicked, setIsClicked] = useState(true); // 댓글 아이콘 클릭 여부 상태
   const [commentImage, setCommentImage] = useState(
     `${process.env.PUBLIC_URL}/images/goComment2.svg`
   ); // 댓글 아이콘 이미지 경로 상태
+  const [inputs, setInputs] = useState({
+    comment: "",
+  });
+  const { comment } = inputs;
+  const token = localStorage.getItem("token");
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
+  };
+  const handleSaveBtn = async () => {
+    console.log("댓글: ", comment);
+    console.log(postId);
+
+    try {
+      axios
+        .post(
+          `http://127.0.0.1:8000/community/${postId}/comments`,
+          {
+            post: postId,
+            comment: inputs.comment,
+          },
+          {
+            headers: {
+              Authorization: `Token ${token}`,
+            },
+          }
+        )
+        .then(() => navigate("/community"));
+    } catch (error) {
+      console.error("Error creating new post:", error);
+    }
+  };
 
   // 별 아이콘 클릭 핸들러 함수
   const handleButtonClick = () => {
@@ -113,7 +153,16 @@ const CommunityItem = ({
                 alt="profile" // 별 아이콘 출력
               />
             </C.AddCommentProfile>
-            <C.AddComment></C.AddComment>
+            <C.AddComment>
+              <input
+                id="addComment"
+                placeholder="댓글을 입력하시오.."
+                value={comment}
+                onChange={onChange}
+                name="comment"
+              />
+              <button onClick={handleSaveBtn}>submit</button>
+            </C.AddComment>
           </C.Comment>
         )}
       </C.Content1>

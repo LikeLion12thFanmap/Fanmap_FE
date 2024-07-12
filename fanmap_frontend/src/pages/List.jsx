@@ -40,6 +40,7 @@ const List = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get("http://127.0.0.1:8000/community");
+        console.log(response.data);
         setItemsList(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -75,11 +76,13 @@ const List = () => {
           {ListItems.map((e) => (
             <ListItem
               key={e.id}
+              postId={e.id}
               img={e.image}
               nickname={e.nickname}
               username={e.userid}
               date={e.created_at}
               content={e.content}
+              link={e.link}
               starImage={`${process.env.PUBLIC_URL}/images/Star.svg`}
               chatIcon={`${process.env.PUBLIC_URL}/images/chatIcon.svg`}
               addMylistImage={`${process.env.PUBLIC_URL}/images/Rectangle21.svg`}
