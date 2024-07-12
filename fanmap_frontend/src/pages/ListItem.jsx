@@ -15,7 +15,6 @@ const ListItem = ({
   starImage,
   chatIcon,
   addMylistImage,
-  editVisible,
 }) => {
   const [count, setCount] = useState(371);
   const [isIncrease, setIsIncrease] = useState(true);
@@ -28,7 +27,6 @@ const ListItem = ({
 
   const [delmodal, setDelModal] = useState(false);
   const [copymodal, setCopyModal] = useState(false);
-  const { id } = useParams();
 
   const handleButtonClick = () => {
     if (isIncrease) {

@@ -10,6 +10,27 @@ const Community = () => {
   {
     /*community 연동*/
   }
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuClick = () => {
+    console.log("Menu clicked");
+    setIsMenuOpen(true);
+  };
+
+  const handleListClick = () => {
+    console.log("List clicked");
+    navigate("/placelist");
+  };
+
+  const handleCommunityClick = () => {
+    console.log("Community clicked");
+    navigate("/community");
+  };
+
+  const handleMainClick = () => {
+    console.log("Main clicked");
+    navigate("/main");
+  };
   const [ListItems, setItemsList] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -71,6 +92,7 @@ const Community = () => {
             />
           ))}
           <CommunityItem
+            profileImage={`${process.env.PUBLIC_URL}/images/profileImage.svg`}
             nickname="nickname1"
             username="@aakw1234"
             date="2024.04.13"
@@ -79,6 +101,10 @@ const Community = () => {
             자세한 정보는 인포 이미지 참고해주세요~!!! 
             맞팔 칭구들은 저 보시면 간식 드릴게요 불러주세요...`}
             img={`${process.env.PUBLIC_URL}/images/gardanImage.png`}
+            coNickname="nickname2"
+            coUsername="@hello2"
+            coImg={`${process.env.PUBLIC_URL}/images/profileImage.svg`}
+            coContent={"댓글입니다"}
           />
           <CommunityItem
             nickname="nickname2"
@@ -102,6 +128,26 @@ const Community = () => {
           />
         </C.StyledList>
       </C.Content>
+      <C.Wrapper>
+        <C.Menu>
+          <img src="/img/menu.png" alt="menu" onClick={handleMenuClick} />
+        </C.Menu>
+        <C.Community>
+          <img
+            src="/img/community.png"
+            alt="community"
+            onClick={handleCommunityClick}
+          />
+        </C.Community>
+        <C.Main onClick={handleMainClick}>
+          <C.MainLogo>
+            <img src="/img/main.png" alt="main" />
+          </C.MainLogo>
+        </C.Main>
+        <C.List onClick={handleListClick}>
+          <img src="/img/list.png" alt="list" />
+        </C.List>
+      </C.Wrapper>
     </C.Container>
   );
 };

@@ -7,6 +7,27 @@ import * as L from "../css/styledList";
 
 const List = () => {
   const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuClick = () => {
+    console.log("Menu clicked");
+    setIsMenuOpen(true);
+  };
+
+  const handleListClick = () => {
+    console.log("List clicked");
+    navigate("/placelist");
+  };
+
+  const handleCommunityClick = () => {
+    console.log("Community clicked");
+    navigate("/community");
+  };
+
+  const handleMainClick = () => {
+    console.log("Main clicked");
+    navigate("/main");
+  };
 
   const goBack = () => {
     navigate("/");
@@ -121,8 +142,45 @@ const List = () => {
             chatIcon={`${process.env.PUBLIC_URL}/images/chatIcon.svg`}
             addMylistImage={`${process.env.PUBLIC_URL}/images/Rectangle21.svg`}
           />
+          <ListItem
+            profileImage={`${process.env.PUBLIC_URL}/images/profileImage.svg`}
+            nickname="nickname"
+            username="@aakw1234"
+            date="2024.04.13"
+            content={
+              <div>
+                5월 10일 첫콘에서 우치와랑 미니 포카홀더 나눔합니다~, <br />
+                선착10분에게는 키링도 드립니다!! <br />
+                자세한 정보는 인포 이미지 참고해주세요~!!! <br />
+                맞팔 칭구들은 저 보시면 간식 드릴게요 불러주세요...
+              </div>
+            }
+            starImage={`${process.env.PUBLIC_URL}/images/Star.svg`}
+            chatIcon={`${process.env.PUBLIC_URL}/images/chatIcon.svg`}
+            addMylistImage={`${process.env.PUBLIC_URL}/images/Rectangle21.svg`}
+          />
         </L.StyledList>
       </L.Content>
+      <L.Wrapper>
+        <L.Menu>
+          <img src="/img/menu.png" alt="menu" onClick={handleMenuClick} />
+        </L.Menu>
+        <L.Community>
+          <img
+            src="/img/community.png"
+            alt="community"
+            onClick={handleCommunityClick}
+          />
+        </L.Community>
+        <L.Main onClick={handleMainClick}>
+          <L.MainLogo>
+            <img src="/img/main.png" alt="main" />
+          </L.MainLogo>
+        </L.Main>
+        <L.List onClick={handleListClick}>
+          <img src="/img/list.png" alt="list" />
+        </L.List>
+      </L.Wrapper>
     </L.Container>
   );
 };
