@@ -484,3 +484,136 @@ export const ListItem = styled.div`
   margin-bottom: 20px;
 `;
 export const handleDelete = styled.div``;
+
+export const Wrapper = styled.div`
+  position: fixed;
+  left: 28px;
+  bottom: 20px; /* Adjust this value as needed */
+  width: 344px;
+  height: 69px;
+  border-radius: 40px;
+  background: #402846;
+  right: 15px;
+  z-index: 2;
+`;
+
+export const Menu = styled.div`
+  float: left;
+  position: relative;
+  top: 12px;
+  left: 35px;
+  margin-right: 30px;
+  cursor: pointer;
+
+  img {
+    color: white;
+  }
+
+  img:active {
+    color: white;
+  }
+
+  img:visited {
+    color: white;
+  }
+
+  img:hover {
+    color: lightgrey;
+  }
+`;
+
+export const Community = styled.div`
+  float: left;
+  position: relative;
+  top: 12px;
+  left: 35px;
+  margin-right: 30px;
+  cursor: pointer;
+
+  img {
+    color: white;
+  }
+
+  img:active {
+    color: white;
+  }
+
+  img:visited {
+    color: white;
+  }
+
+  img:hover {
+    color: lightgrey;
+  }
+`;
+
+export const Main = styled.div`
+  position: relative;
+  top: 6px;
+  right: 3px;
+  cursor: pointer;
+
+  img {
+    color: white;
+  }
+
+  img:active {
+    color: white;
+  }
+
+  img:visited {
+    color: white;
+  }
+
+  img:hover {
+    color: lightgrey;
+  }
+`;
+
+export const MainLogo = styled.div`
+  float: left;
+  position: relative;
+  left: 44px;
+  top: 6px;
+  cursor: pointer;
+
+  img {
+    color: white;
+  }
+
+  img:active {
+    color: white;
+  }
+
+  img:visited {
+    color: white;
+  }
+
+  img:hover {
+    color: lightgrey;
+  }
+`;
+
+export const List = styled.div`
+  float: left;
+  position: relative;
+  left: 75px;
+  top: 11px;
+  cursor: pointer;
+
+  img {
+    color: white;
+  }
+
+  img:active {
+    color: white;
+  }
+
+  img:visited {
+    color: white;
+  }
+
+  img:hover {
+    color: lightgrey;
+  }
+`;

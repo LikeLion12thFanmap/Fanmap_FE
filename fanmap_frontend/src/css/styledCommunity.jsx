@@ -120,6 +120,7 @@ export const C7 = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  position: relative;
 
   button {
     border: none;
@@ -147,9 +148,8 @@ export const C8 = styled.div`
     cursor: pointer;
     padding: 0;
     position: absolute;
-    bottom: 10px;
     right: 15px;
-
+    top: 0;
     flex-shrink: 0;
   }
 `;
@@ -210,4 +210,183 @@ export const ListItem = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+`;
+export const Comment = styled.div`
+  margin-top: 20px;
+  position: relative;
+  padding-left: 40px;
+  padding-top: 3px;
+`;
+export const CommentImg = styled.div`
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
+export const CommmentNickname = styled.div`
+  color: var(--main1, #1d1d1d);
+  font-family: "SUIT Variable";
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`;
+export const CommentUsername = styled.div`
+  color: var(--main1, #1d1d1d);
+  font-family: "SUIT Variable";
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+`;
+export const CommentName = styled.div`
+  display: flex;
+  align-items: center; /* 세로 가운데 정렬 */
+  gap: 5px;
+  padding-bottom: 2px;
+`;
+export const CommentContent = styled.div`
+  color: var(--main1, #1d1d1d);
+  font-family: "SUIT Variable";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+`;
+export const AddCommentProfile = styled.div``;
+export const AddComment = styled.div``;
+export const Wrapper = styled.div`
+  position: fixed;
+  left: 28px;
+  bottom: 20px; /* Adjust this value as needed */
+  width: 344px;
+  height: 69px;
+  border-radius: 40px;
+  background: #402846;
+  right: 15px;
+  z-index: 2;
+`;
+
+export const Menu = styled.div`
+  float: left;
+  position: relative;
+  top: 12px;
+  left: 35px;
+  margin-right: 30px;
+  cursor: pointer;
+
+  img {
+    color: white;
+  }
+
+  img:active {
+    color: white;
+  }
+
+  img:visited {
+    color: white;
+  }
+
+  img:hover {
+    color: lightgrey;
+  }
+`;
+
+export const Community = styled.div`
+  float: left;
+  position: relative;
+  top: 12px;
+  left: 35px;
+  margin-right: 30px;
+  cursor: pointer;
+
+  img {
+    color: white;
+  }
+
+  img:active {
+    color: white;
+  }
+
+  img:visited {
+    color: white;
+  }
+
+  img:hover {
+    color: lightgrey;
+  }
+`;
+
+export const Main = styled.div`
+  position: relative;
+  top: 6px;
+  right: 3px;
+  cursor: pointer;
+
+  img {
+    color: white;
+  }
+
+  img:active {
+    color: white;
+  }
+
+  img:visited {
+    color: white;
+  }
+
+  img:hover {
+    color: lightgrey;
+  }
+`;
+
+export const MainLogo = styled.div`
+  float: left;
+  position: relative;
+  left: 44px;
+  top: 6px;
+  cursor: pointer;
+
+  img {
+    color: white;
+  }
+
+  img:active {
+    color: white;
+  }
+
+  img:visited {
+    color: white;
+  }
+
+  img:hover {
+    color: lightgrey;
+  }
+`;
+
+export const List = styled.div`
+  float: left;
+  position: relative;
+  left: 75px;
+  top: 11px;
+  cursor: pointer;
+
+  img {
+    color: white;
+  }
+
+  img:active {
+    color: white;
+  }
+
+  img:visited {
+    color: white;
+  }
+
+  img:hover {
+    color: lightgrey;
+  }
 `;

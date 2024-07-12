@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import * as C from "../css/styledCommunity";
 
-import React, { useState } from "react";
-import * as C from "./CommunityItemStyles";
-
-const CommunityItem = ({ nickname, username, date, content, img }) => {
+const CommunityItem = ({
+  profileImage,
+  nickname,
+  username,
+  date,
+  content,
+  img,
+  coNickname,
+  coUsername,
+  coImg,
+  coContent,
+}) => {
   const [isIncrease, setIsIncrease] = useState(true); // 카운트 증가/감소 여부 상태
   const [count, setCount] = useState(370); // 초기 카운트 값
   const [isClicked, setIsClicked] = useState(true); // 댓글 아이콘 클릭 여부 상태
@@ -37,7 +45,7 @@ const CommunityItem = ({ nickname, username, date, content, img }) => {
       <C.Content1>
         <C.C1>
           <img
-            src={`${process.env.PUBLIC_URL}/images/profileImage.svg`}
+            src={profileImage}
             alt="" // 프로필 이미지 출력
           />
         </C.C1>
@@ -69,24 +77,45 @@ const CommunityItem = ({ nickname, username, date, content, img }) => {
           <button onClick={handleIsClicked}>
             <img id="goComment" src={commentImage} alt="goComment" />
           </button>
-        </C.C7>
-        <C.C8>
-          <button onClick={handleButtonClick}>
-            <img
-              id="addMylist"
-              src={`${process.env.PUBLIC_URL}/images/Rectangle21.svg`}
-              alt="addMylist" // 내 리스트 추가 아이콘 출력
-            />
-            <C.C82>
+          <C.C8>
+            <button onClick={handleButtonClick}>
               <img
-                id="Star3"
-                src={`${process.env.PUBLIC_URL}/images/Star3.svg`}
-                alt="Star3" // 별 아이콘 출력
+                id="addMylist"
+                src={`${process.env.PUBLIC_URL}/images/Rectangle21.svg`}
+                alt="addMylist" // 내 리스트 추가 아이콘 출력
               />
-              <span>내 리스트 추가</span> {/* 내 리스트 추가 텍스트 */}
-            </C.C82>
-          </button>
-        </C.C8>
+              <C.C82>
+                <img
+                  id="Star3"
+                  src={`${process.env.PUBLIC_URL}/images/Star3.svg`}
+                  alt="Star3" // 별 아이콘 출력
+                />
+                <span>내 리스트 추가</span> {/* 내 리스트 추가 텍스트 */}
+              </C.C82>
+            </button>
+          </C.C8>
+        </C.C7>
+        {!isClicked && (
+          <C.Comment>
+            <C.CommentImg>
+              <img src={coImg} alt="" />
+            </C.CommentImg>
+            <C.CommentName>
+              <C.CommmentNickname>{coNickname}</C.CommmentNickname>
+              <C.CommentUsername>{coUsername}</C.CommentUsername>
+            </C.CommentName>
+
+            <C.CommentContent>{coContent}</C.CommentContent>
+            <C.AddCommentProfile>
+              <img
+                id="profile"
+                src={`${process.env.PUBLIC_URL}/images/profileImage.svg`}
+                alt="profile" // 별 아이콘 출력
+              />
+            </C.AddCommentProfile>
+            <C.AddComment></C.AddComment>
+          </C.Comment>
+        )}
       </C.Content1>
     </C.ListItem>
   );
