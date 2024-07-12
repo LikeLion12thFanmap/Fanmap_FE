@@ -81,6 +81,7 @@ const Community = () => {
           {ListItems.map((e) => (
             <CommunityItem
               key={e.id}
+              postId={e.id}
               img={e.image}
               nickname={e.nickname}
               username={e.userid}

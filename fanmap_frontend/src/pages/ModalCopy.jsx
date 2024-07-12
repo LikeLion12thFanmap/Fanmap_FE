@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import * as L from "../css/styledList";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const ModalCopy = (props) => {
-  const { isClose } = props;
+  const isClose = props.isClose;
+  const link = props.link;
   const [copyMessage, setCopyMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("링크 복사 내용"); //링크 복사, 1분 뒤 복사완료 창 닫힘
+    console.log(link);
+    navigator.clipboard.writeText(link); //링크 복사, 1분 뒤 복사완료 창 닫힘
 
     setCopyMessage(
       <p>
@@ -17,7 +22,7 @@ const ModalCopy = (props) => {
         글을 공유해보세요.
       </p>
     );
-
+    window.location.reload();
     setTimeout(() => {
       isClose(false);
       setCopyMessage("");

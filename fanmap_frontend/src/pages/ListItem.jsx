@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as L from "../css/styledList";
 import ModalDelete from "./ModalDel";
 import ModalCopy from "./ModalCopy";
@@ -6,11 +6,14 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 const ListItem = ({
+  key,
+  postId,
   profileImage,
   nickname,
   username,
   date,
   content,
+  link,
   img,
   starImage,
   chatIcon,
@@ -36,6 +39,7 @@ const ListItem = ({
     }
     setIsIncrease(!isIncrease);
   };
+  console.log("postId", postId);
 
   const handleIsClicked = () => {
     if (isClicked) {
@@ -122,7 +126,9 @@ const ListItem = ({
                   />
                   <p id="edit2p">공유</p>
                 </button>
-                {copymodal ? <ModalCopy isClose={setCopyModal} /> : null}{" "}
+                {copymodal ? (
+                  <ModalCopy isClose={setCopyModal} link={link} />
+                ) : null}{" "}
                 {/* 복사 모달 출력 */}
                 <button id="edit3" onClick={() => setDelModal(true)}>
                   <img
@@ -137,7 +143,9 @@ const ListItem = ({
                   />
                   <p id="edit3p">삭제</p>
                 </button>
-                {delmodal ? <ModalDelete isClose={setDelModal} /> : null}{" "}
+                {delmodal ? (
+                  <ModalDelete isClose={setDelModal} id={postId} />
+                ) : null}{" "}
                 {/* 삭제 모달 출력 */}
               </>
             )}
